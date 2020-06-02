@@ -1,3 +1,143 @@
 @use './reset.scss';
 
 /* Add your css here */
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px; 
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: calc(15px + (20 - 15) * ((100vw - 300px) / (1600 - 300)));
+    padding: 1rem;
+}
+.h-container{
+    padding: 0.5rem;
+    .row{
+        .left{
+            display: flex;
+            align-items: center;
+        }
+        a{
+            color: black;
+        }
+        .list-group{
+            list-style-type: none;
+            justify-content: space-around;
+        }
+        img{
+            width: 2rem;
+        }
+    }
+}
+
+@media only screen and (min-width: $sm) {
+    .col-6{
+        .list-group{
+            flex-direction: row;
+        }
+    }
+}
+//Story 2
+.banner{
+    background-image: url(../images/bg.jpg);
+    background-clip: padding-box;
+    background-size: cover;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    
+    .account{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        a{
+            color: white;
+            border: 0.15rem solid #dddddd;
+            padding: 0.2rem 0.7rem;
+            margin: 0 0.2rem 0 0.2rem;
+        }
+    }
+    .logo-card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        .logo{
+            width: 6rem;
+            height: auto;
+        }
+    }
+    .search-restaurant{
+        display: flex;
+        flex-direction: column;
+        
+        #search-btn{
+            color: #fff;
+            background-color: #dc3545;
+            border-color: #dc3545;
+            &:hover {
+            color: #fff;
+            background-color: #c82333;
+            border-color: #bd2130;
+            }
+        }
+        #place,#search-rest{
+            border-radius: 0.15rem;
+            padding: .25rem .5rem;
+            height: 2rem;
+            font-size: medium;
+        }
+    }
+}
+@media only screen and (min-width: $sm) {
+    .banner{
+        .search-restaurant{
+            flex-direction: row;
+            justify-content: center;
+            #place{
+                width: 8rem;
+            }
+            #search-rest{
+                width: 20rem;
+                margin: 0 0.3rem;
+            }
+
+        }
+    }
+}
+//story 3
+
+.middle{
+    padding: 0.5rem;
+    .left{
+        .zmland{
+            display: none;
+        }
+        .collections{
+            .card{
+                flex-direction: row;
+                .card-body{
+                    flex-basis: 60%;
+                }
+                img{
+                    flex-basis: 40%;
+                }
+            }
+            .all-colls{
+                background: white;
+                color: red;
+                padding: 0.3rem;
+                text-align: center;
+            }
+        }
+    }
+    .widget{
+        .widget-content{
+            background: white;
+        }
+    }
+}
