@@ -12,7 +12,7 @@ $xl: 1200px;
 body{
     font-family: Arial, Helvetica, sans-serif;
     font-size: calc(15px + (20 - 15) * ((100vw - 300px) / (1600 - 300)));
-    padding: 1rem;
+    padding: 0.5rem;
 }
 .h-container{
     padding: 0.5rem;
@@ -46,7 +46,7 @@ body{
     background-image: url(../images/bg.jpg);
     background-clip: padding-box;
     background-size: cover;
-    padding: 0.5rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
     
@@ -112,19 +112,30 @@ body{
 //story 3
 
 .middle{
+    background-color: #e9ecef;
     padding: 0.5rem;
     .left{
         .zmland{
             display: none;
         }
         .collections{
-            .card{
-                flex-direction: row;
-                .card-body{
-                    flex-basis: 60%;
-                }
-                img{
-                    flex-basis: 40%;
+            .cards{
+                display: grid;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+                gap: 1rem;
+                .card{
+                    display: grid;
+                    grid-template-columns: 0.4fr 0.6fr;
+                    .card-body{
+                        padding: 0.5rem;
+                        p{
+                            margin: 0;
+                        }
+                    }
+                    img{
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
             }
             .all-colls{
@@ -138,6 +149,194 @@ body{
     .widget{
         .widget-content{
             background: white;
+            display: flex;
+            flex-direction: column;
+            .input-group{
+                .detect-btn{
+                    color: #212529;
+                    background-color: #ffffff;
+                    border: 1px solid #ced4da;
+                    border-radius: .25rem;
+                    &:hover{
+                        background-color: #f8f9f8;
+                        border: 1px solid #ccd2d8;
+                    }
+                }
+            }
+            .order-btn{
+                color: #fff;
+                background-color: #28a745;
+                border-color: #28a745;
+                &:hover{
+                    background-color: #229b3e;
+                    border-color: #26a543;
+                }
+            }
+            h5{
+                color: #28a745;
+                text-align: center;
+            }
         }
     }
 }
+
+@media only screen and (min-width: $sm) {
+    .middle{
+        display: grid;
+        grid-template-columns: 0.66fr 0.34fr;
+        gap: 1rem;
+        .left{
+            .zmland{
+                display: block;
+                width: 100%;
+            }
+            .collections{
+                .cards{
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                }
+            }
+        }
+    }
+}
+//story 4
+.categories{
+    background-color: #e9ecef;
+    padding: 0.5rem;
+    .category-list{
+        background: #fff;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        list-style-type: none;
+        padding: 0;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (min-width: $sm) {
+    .categories{
+        .category-list{
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: 1fr;
+        }
+    }
+}
+//story 5
+.localities{
+    background: #e9ecef;
+    padding: 0.5rem;
+    .lists{
+        background: #fff;
+        .locality-list{
+            list-style-type: none;
+            padding: 0 1rem;
+            .places{
+                color: grey;
+            }
+        }
+    }
+}
+@media only screen and (min-width: $sm) {
+    .localities{
+        .lists{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+//footer
+footer{
+    background: black;
+    color: #aaaaaa;
+    padding: 0.5rem;
+    .footer-top{
+        display: flex;
+        justify-content: space-between;
+        .logo{
+            width: 6rem;
+            height: auto;
+        }
+        #place{
+            border: 0.1rem solid #aaaaaa;
+            padding: .25rem .5rem;
+            height: 2rem;
+            font-size: medium;
+            width: 8rem;
+            color: #aaaaaa;
+            background: black;
+            align-self: center;
+        }
+    }
+    .footer-wrapper{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .footer-widget{
+            ul{
+                list-style-type: none;
+                padding: 0.25rem;
+            }
+        }
+    }
+    .countries{
+        .country-list{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            ul{
+                list-style-type: none;
+                padding: 0.25rem;
+            }
+        }
+    }
+    .general-links{
+        display: flex;
+        justify-content: space-between;
+        ul{
+            display: flex;
+            flex-direction: column;
+            list-style-type: none;
+            padding: 0.25rem;
+            li{
+                padding: 0.5rem;
+            }
+        }
+        .icons{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        i{
+            padding: 1rem;
+        }
+    }
+    .copyright{
+        font-size: .6em;
+        color: grey;
+    }
+}
+@media only screen and (min-width: $sm) {
+    footer{
+        .footer-wrapper{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .countries{
+            .country-list{
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+        .general-links{
+            ul{
+                flex-direction: row;
+            }
+            .icons{
+                flex-direction: row;
+            }
+        }
+    }
+}
+
