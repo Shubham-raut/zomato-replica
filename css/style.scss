@@ -146,8 +146,8 @@ body{
             }
         }
     }
-    .widget{
-        .widget-content{
+    .widget-outer{
+        .widget{
             background: white;
             display: flex;
             flex-direction: column;
